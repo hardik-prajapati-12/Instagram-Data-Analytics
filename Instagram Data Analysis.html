@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Analysis of Instagram Dataset — Data Analytics Using Python</title>
+<link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+<link rel="apple-touch-icon" sizes="180x180" href="logo.png">
 <meta name="description" content="A 46-task Python data analytics pipeline on a 10,000-post Instagram dataset — EDA, statistics, regression and classification, with full code and output.">
 <style>
 /* ==========================================================================
@@ -127,25 +130,24 @@ a{ color:inherit; }
   -webkit-backdrop-filter:blur(14px) saturate(1.4);
   border-bottom:1px solid var(--line);
 }
-.topnav .container{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.topnav .container{ display:flex; align-items:center; justify-content:space-between; gap:32px; max-width:1240px; margin:0 auto; padding:0 32px; }
 .brand{
-  display:flex; align-items:center; gap:10px;
-  font-family:var(--font-display); font-weight:700; font-size:1rem;
+  display:flex; align-items:center; gap:14px;
+  font-family:var(--font-display); font-weight:700; font-size:1.125rem;
   letter-spacing:-0.01em;
   text-decoration:none; color:var(--ink);
   white-space:nowrap;
 }
 .brand-mark{
-  width:28px; height:28px; border-radius:8px;
-  background:var(--engagement);
+  width:42px; height:42px; border-radius:10px;
   display:grid; place-items:center; flex:none;
 }
 .brand-mark svg{ width:15px; height:15px; }
-.brand small{ display:block; font-family:var(--font-body); font-weight:500; font-size:0.6875rem; color:var(--ink-faint); letter-spacing:0.02em; }
+.brand small{ display:block; font-family:var(--font-body); font-weight:500; font-size:0.75rem; color:var(--ink-faint); letter-spacing:0.02em; }
 
-.nav-links{ display:flex; align-items:center; gap:2px; list-style:none; margin:0; padding:0; }
+.nav-links{ display:flex; align-items:center; gap:6px; list-style:none; margin:0; padding:0; }
 .nav-links a{
-  display:block; padding:9px 14px; border-radius:100px;
+  display:block; padding:8px 16px; border-radius:100px;
   font-size:0.875rem; font-weight:500; text-decoration:none; color:var(--ink-soft);
   transition:background .2s ease, color .2s ease;
 }
@@ -262,7 +264,7 @@ a{ color:inherit; }
 /* --- hero signature: correlation grid --- */
 .corr-card{
   background:var(--panel); border:1px solid var(--line); border-radius:var(--radius-xl);
-  padding:28px 28px 24px; box-shadow:var(--shadow-card);
+  padding:28px 28px 24px; box-shadow:var(--shadow-card); margin-top: -80px;
 }
 .corr-card svg{ width:100%; height:auto; display:block; }
 .corr-card-head{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:18px; gap:12px;}
@@ -342,7 +344,12 @@ hr.rule{ border:none; border-top:1px solid var(--line); margin:0; }
 }
 .chip-group{ margin-bottom:24px; }
 .chip-group:last-child{ margin-bottom:0; }
-.chip-group-label{ font-size:0.75rem; color:var(--ink-faint); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px; display:block; }
+.chip-group-label{ font-size:0.75rem; color:var(--ink-faint); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+.stack-icon{ width:16px; height:16px; vertical-align:text-bottom; animation: float 3s ease-in-out infinite; }
+@keyframes float{
+  0%, 100%{ transform:translateY(0); }
+  50%{ transform:translateY(-2px); }
+}
 
 .kaggle-callout{
   margin-top:28px; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
@@ -631,11 +638,11 @@ footer{ padding:56px 0 48px; border-top:1px solid var(--line); }
   <div class="container">
     <div class="hero-grid">
       <div class="reveal is-visible">
-        <span class="eyebrow">Course 602 · Data Analytics Using Python</span>
+        <span class="eyebrow">Data Analytics Using Python</span>
         <h1>Analysis of <em>Instagram</em> Dataset</h1>
         <p class="hero-thesis">Forty-six sequential tasks carry 10,000 raw Instagram posts from a single CSV file to a working engagement model — cleaning, visual exploration, statistical testing, regression and classification, each one documented here with its exact code and real output.</p>
         <div class="byline">
-          <span><strong>Shlok A. Rajput</strong> &amp; <strong>Hardik B. Prajapati</strong></span>
+          <span><strong>Hardik Prajapati</strong> &amp; <strong>Shlok Rajput</strong></span>
           <span class="dot">·</span>
           <span>Guided by <strong>Dr. Jyoti Rana</strong></span>
           <span class="dot">·</span>
@@ -695,7 +702,7 @@ footer{ padding:56px 0 48px; border-top:1px solid var(--line); }
         </div>
       </div>
       <div class="chip-group">
-        <span class="chip-group-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Built with</span>
+        <span class="chip-group-label"><svg class="stack-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Built with</span>
         <div class="chip-row">
           <span class="chip">Python 3.x</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Scikit-learn</span>
         </div>
@@ -721,20 +728,20 @@ footer{ padding:56px 0 48px; border-top:1px solid var(--line); }
     <div class="section-head reveal">
       <span class="section-tag">Documentation</span>
       <h2>The original project report</h2>
-      <p>Submitted as the written report for this project — reproduced here in full so it travels with the site. Viewable only; it isn't offered as a separate download.</p>
+      <p>Submitted as the written report for this project — reproduced here in full so it travels with the site.</p>
     </div>
 
     <div class="doc-panel reveal">
       <div class="doc-panel-top">
         <div class="doc-title-block">
-          <span class="view-only"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> View only · not downloadable</span>
+          <span class="view-only"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> View only</span>
           <h3>“Analysis of Instagram Dataset”</h3>
           <p>Minor project report · Bachelor of Computer Application, 6th Semester</p>
         </div>
       </div>
       <div class="doc-body">
         <dl class="doc-meta-grid">
-          <div><dt>Submitted by</dt><dd>Shlok A. Rajput &amp; Hardik B. Prajapati</dd></div>
+          <div><dt>Submitted by</dt><dd>Hardik Prajapati &amp; Shlok Rajput</dd></div>
           <div><dt>Guided by</dt><dd>Dr. Jyoti Rana</dd></div>
           <div><dt>Institution</dt><dd>NaranLala College of Professional &amp; Applied Sciences, Navsari</dd></div>
           <div><dt>Academic year</dt><dd>2025–2026</dd></div>
@@ -3112,7 +3119,7 @@ R2: 0.9683990087012114</pre>
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#top" class="brand">
-          <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="color:#fff"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
+          <span class="brand-mark"><img src="logo.png" alt="Logo" style="width:100%; height:100%; object-fit:contain;"></span>
           <span>Instagram Dataset<small>Data Analytics Report</small></span>
         </a>
         <p>A 46-task Python analytics pipeline, documented end to end from raw CSV to evaluated model.</p>

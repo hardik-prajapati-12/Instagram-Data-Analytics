@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Analysis of Instagram Dataset — Data Analytics Using Python</title>
-<link rel="icon" type="image/png" sizes="32x32" href="logo.png">
-<link rel="icon" type="image/png" sizes="16x16" href="logo.png">
-<link rel="apple-touch-icon" sizes="180x180" href="logo.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" sizes="any" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
 <meta name="description" content="A 46-task Python data analytics pipeline on a 10,000-post Instagram dataset — EDA, statistics, regression and classification, with full code and output.">
 <style>
 /* ==========================================================================
@@ -37,14 +37,14 @@
   --line:       #DDE2DF;
   --line-soft:  #E8ECE9;
 
-  --engagement:      #4B3BF0;
-  --engagement-ink:  #3226C4;
-  --engagement-soft: #EBE8FE;
-  --engagement-mist: #F5F4FF;
+  --engagement:      #0066FF;
+  --engagement-ink:  #003D99;
+  --engagement-soft: #E6F0FF;
+  --engagement-mist: #F0F5FF;
 
-  --teal:      #0EA893;
-  --teal-soft: #DFF6F1;
-  --teal-ink:  #0B8574;
+  --teal:      #00B8D4;
+  --teal-soft: #CCF2FF;
+  --teal-ink:  #0088AA;
 
   --coral:      #FF5D73;
   --coral-soft: #FFE7EA;
@@ -69,7 +69,7 @@
   /* ---- shadow ---- */
   --shadow-card: 0 1px 2px rgba(20,23,28,0.04), 0 8px 24px -12px rgba(20,23,28,0.12);
   --shadow-card-hover: 0 2px 4px rgba(20,23,28,0.06), 0 20px 40px -16px rgba(20,23,28,0.18);
-  --shadow-pop: 0 12px 32px -8px rgba(75,59,240,0.28);
+  --shadow-pop: 0 12px 32px -8px rgba(0,102,255,0.28);
 
   --nav-h: 68px;
 }
@@ -132,20 +132,21 @@ a{ color:inherit; }
 }
 .topnav .container{ display:flex; align-items:center; justify-content:space-between; gap:32px; max-width:1240px; margin:0 auto; padding:0 32px; }
 .brand{
-  display:flex; align-items:center; gap:14px;
+  display:flex; align-items:center; gap:1px;
   font-family:var(--font-display); font-weight:700; font-size:1.125rem;
   letter-spacing:-0.01em;
   text-decoration:none; color:var(--ink);
   white-space:nowrap;
 }
 .brand-mark{
-  width:42px; height:42px; border-radius:10px;
+  width:60px; height:60px; border-radius:12px;
   display:grid; place-items:center; flex:none;
+  background:transparent;
 }
-.brand-mark svg{ width:15px; height:15px; }
+.brand-mark img{ width:100%; height:100%; object-fit:contain; }
 .brand small{ display:block; font-family:var(--font-body); font-weight:500; font-size:0.75rem; color:var(--ink-faint); letter-spacing:0.02em; }
 
-.nav-links{ display:flex; align-items:center; gap:6px; list-style:none; margin:0; padding:0; }
+.nav-links{ display:flex; align-items:center; gap:24px; list-style:none; margin:0; padding:0; }
 .nav-links a{
   display:block; padding:8px 16px; border-radius:100px;
   font-size:0.875rem; font-weight:500; text-decoration:none; color:var(--ink-soft);
@@ -608,7 +609,7 @@ footer{ padding:56px 0 48px; border-top:1px solid var(--line); }
 <nav class="topnav">
   <div class="container">
     <a href="#top" class="brand">
-      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="color:#fff"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></span>
+      <span class="brand-mark"><img src="logo.png" alt="Instagram Dataset Logo"></span>
       <span>Instagram Dataset
         <small>Data Analytics Report</small>
       </span>
@@ -666,7 +667,7 @@ footer{ padding:56px 0 48px; border-top:1px solid var(--line); }
             </div>
             <span class="corr-tag">Pearson r</span>
           </div>
-          <svg viewBox="0 0 482 386" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Correlation matrix of likes, comments, shares, saves and engagement"><style>.corr-lbl{{font-family:JetBrains Mono,monospace;font-size:11px;fill:#4B5058}}.corr-val{{font-family:JetBrains Mono,monospace;font-size:12.5px;font-weight:600}}</style><text class="corr-lbl" x="149.0" y="76.0" text-anchor="start" transform="rotate(-40 149.0 76.0)">likes</text><text class="corr-lbl" x="208.0" y="76.0" text-anchor="start" transform="rotate(-40 208.0 76.0)">comments</text><text class="corr-lbl" x="267.0" y="76.0" text-anchor="start" transform="rotate(-40 267.0 76.0)">shares</text><text class="corr-lbl" x="326.0" y="76.0" text-anchor="start" transform="rotate(-40 326.0 76.0)">saves</text><text class="corr-lbl" x="385.0" y="76.0" text-anchor="start" transform="rotate(-40 385.0 76.0)">engagement</text><text class="corr-lbl" x="108" y="117.0" text-anchor="end">likes</text><text class="corr-lbl" x="108" y="176.0" text-anchor="end">comments</text><text class="corr-lbl" x="108" y="235.0" text-anchor="end">shares</text><text class="corr-lbl" x="108" y="294.0" text-anchor="end">saves</text><text class="corr-lbl" x="108" y="353.0" text-anchor="end">engagement</text><rect x="122" y="86" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="1.00"/><text class="corr-val" x="149.0" y="117.0" text-anchor="middle" fill="#ffffff">1.00</text><rect x="181" y="86" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.46"/><text class="corr-val" x="208.0" y="117.0" text-anchor="middle" fill="#14171C">0.76</text><rect x="240" y="86" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.38"/><text class="corr-val" x="267.0" y="117.0" text-anchor="middle" fill="#14171C">0.72</text><rect x="299" y="86" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.40"/><text class="corr-val" x="326.0" y="117.0" text-anchor="middle" fill="#14171C">0.73</text><rect x="358" y="86" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.98"/><text class="corr-val" x="385.0" y="117.0" text-anchor="middle" fill="#ffffff">0.99</text><rect x="122" y="145" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.46"/><text class="corr-val" x="149.0" y="176.0" text-anchor="middle" fill="#14171C">0.76</text><rect x="181" y="145" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="1.00"/><text class="corr-val" x="208.0" y="176.0" text-anchor="middle" fill="#ffffff">1.00</text><rect x="240" y="145" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.37"/><text class="corr-val" x="267.0" y="176.0" text-anchor="middle" fill="#14171C">0.72</text><rect x="299" y="145" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.30"/><text class="corr-val" x="326.0" y="176.0" text-anchor="middle" fill="#14171C">0.69</text><rect x="358" y="145" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.59"/><text class="corr-val" x="385.0" y="176.0" text-anchor="middle" fill="#ffffff">0.82</text><rect x="122" y="204" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.38"/><text class="corr-val" x="149.0" y="235.0" text-anchor="middle" fill="#14171C">0.72</text><rect x="181" y="204" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.37"/><text class="corr-val" x="208.0" y="235.0" text-anchor="middle" fill="#14171C">0.72</text><rect x="240" y="204" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="1.00"/><text class="corr-val" x="267.0" y="235.0" text-anchor="middle" fill="#ffffff">1.00</text><rect x="299" y="204" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.22"/><text class="corr-val" x="326.0" y="235.0" text-anchor="middle" fill="#14171C">0.65</text><rect x="358" y="204" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.53"/><text class="corr-val" x="385.0" y="235.0" text-anchor="middle" fill="#14171C">0.79</text><rect x="122" y="263" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.40"/><text class="corr-val" x="149.0" y="294.0" text-anchor="middle" fill="#14171C">0.73</text><rect x="181" y="263" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.30"/><text class="corr-val" x="208.0" y="294.0" text-anchor="middle" fill="#14171C">0.69</text><rect x="240" y="263" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.22"/><text class="corr-val" x="267.0" y="294.0" text-anchor="middle" fill="#14171C">0.65</text><rect x="299" y="263" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="1.00"/><text class="corr-val" x="326.0" y="294.0" text-anchor="middle" fill="#ffffff">1.00</text><rect x="358" y="263" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.56"/><text class="corr-val" x="385.0" y="294.0" text-anchor="middle" fill="#ffffff">0.80</text><rect x="122" y="322" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.98"/><text class="corr-val" x="149.0" y="353.0" text-anchor="middle" fill="#ffffff">0.99</text><rect x="181" y="322" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.59"/><text class="corr-val" x="208.0" y="353.0" text-anchor="middle" fill="#ffffff">0.82</text><rect x="240" y="322" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.53"/><text class="corr-val" x="267.0" y="353.0" text-anchor="middle" fill="#14171C">0.79</text><rect x="299" y="322" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="0.56"/><text class="corr-val" x="326.0" y="353.0" text-anchor="middle" fill="#ffffff">0.80</text><rect x="358" y="322" width="54" height="54" rx="9" fill="#4B3BF0" fill-opacity="1.00"/><text class="corr-val" x="385.0" y="353.0" text-anchor="middle" fill="#ffffff">1.00</text></svg>
+          <svg viewBox="0 0 482 386" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Correlation matrix of likes, comments, shares, saves and engagement"><style>.corr-lbl{{font-family:JetBrains Mono,monospace;font-size:11px;fill:#4B5058}}.corr-val{{font-family:JetBrains Mono,monospace;font-size:12.5px;font-weight:600}}</style><text class="corr-lbl" x="149.0" y="76.0" text-anchor="start" transform="rotate(-40 149.0 76.0)">likes</text><text class="corr-lbl" x="208.0" y="76.0" text-anchor="start" transform="rotate(-40 208.0 76.0)">comments</text><text class="corr-lbl" x="267.0" y="76.0" text-anchor="start" transform="rotate(-40 267.0 76.0)">shares</text><text class="corr-lbl" x="326.0" y="76.0" text-anchor="start" transform="rotate(-40 326.0 76.0)">saves</text><text class="corr-lbl" x="385.0" y="76.0" text-anchor="start" transform="rotate(-40 385.0 76.0)">engagement</text><text class="corr-lbl" x="108" y="117.0" text-anchor="end">likes</text><text class="corr-lbl" x="108" y="176.0" text-anchor="end">comments</text><text class="corr-lbl" x="108" y="235.0" text-anchor="end">shares</text><text class="corr-lbl" x="108" y="294.0" text-anchor="end">saves</text><text class="corr-lbl" x="108" y="353.0" text-anchor="end">engagement</text><rect x="122" y="86" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="1.00"/><text class="corr-val" x="149.0" y="117.0" text-anchor="middle" fill="#ffffff">1.00</text><rect x="181" y="86" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.46"/><text class="corr-val" x="208.0" y="117.0" text-anchor="middle" fill="#14171C">0.76</text><rect x="240" y="86" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.38"/><text class="corr-val" x="267.0" y="117.0" text-anchor="middle" fill="#14171C">0.72</text><rect x="299" y="86" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.40"/><text class="corr-val" x="326.0" y="117.0" text-anchor="middle" fill="#14171C">0.73</text><rect x="358" y="86" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.98"/><text class="corr-val" x="385.0" y="117.0" text-anchor="middle" fill="#ffffff">0.99</text><rect x="122" y="145" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.46"/><text class="corr-val" x="149.0" y="176.0" text-anchor="middle" fill="#14171C">0.76</text><rect x="181" y="145" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="1.00"/><text class="corr-val" x="208.0" y="176.0" text-anchor="middle" fill="#ffffff">1.00</text><rect x="240" y="145" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.37"/><text class="corr-val" x="267.0" y="176.0" text-anchor="middle" fill="#14171C">0.72</text><rect x="299" y="145" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.30"/><text class="corr-val" x="326.0" y="176.0" text-anchor="middle" fill="#14171C">0.69</text><rect x="358" y="145" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.59"/><text class="corr-val" x="385.0" y="176.0" text-anchor="middle" fill="#ffffff">0.82</text><rect x="122" y="204" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.38"/><text class="corr-val" x="149.0" y="235.0" text-anchor="middle" fill="#14171C">0.72</text><rect x="181" y="204" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.37"/><text class="corr-val" x="208.0" y="235.0" text-anchor="middle" fill="#14171C">0.72</text><rect x="240" y="204" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="1.00"/><text class="corr-val" x="267.0" y="235.0" text-anchor="middle" fill="#ffffff">1.00</text><rect x="299" y="204" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.22"/><text class="corr-val" x="326.0" y="235.0" text-anchor="middle" fill="#14171C">0.65</text><rect x="358" y="204" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.53"/><text class="corr-val" x="385.0" y="235.0" text-anchor="middle" fill="#14171C">0.79</text><rect x="122" y="263" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.40"/><text class="corr-val" x="149.0" y="294.0" text-anchor="middle" fill="#14171C">0.73</text><rect x="181" y="263" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.30"/><text class="corr-val" x="208.0" y="294.0" text-anchor="middle" fill="#14171C">0.69</text><rect x="240" y="263" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.22"/><text class="corr-val" x="267.0" y="294.0" text-anchor="middle" fill="#14171C">0.65</text><rect x="299" y="263" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="1.00"/><text class="corr-val" x="326.0" y="294.0" text-anchor="middle" fill="#ffffff">1.00</text><rect x="358" y="263" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.56"/><text class="corr-val" x="385.0" y="294.0" text-anchor="middle" fill="#ffffff">0.80</text><rect x="122" y="322" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.98"/><text class="corr-val" x="149.0" y="353.0" text-anchor="middle" fill="#ffffff">0.99</text><rect x="181" y="322" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.59"/><text class="corr-val" x="208.0" y="353.0" text-anchor="middle" fill="#ffffff">0.82</text><rect x="240" y="322" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.53"/><text class="corr-val" x="267.0" y="353.0" text-anchor="middle" fill="#14171C">0.79</text><rect x="299" y="322" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="0.56"/><text class="corr-val" x="326.0" y="353.0" text-anchor="middle" fill="#ffffff">0.80</text><rect x="358" y="322" width="54" height="54" rx="9" fill="#0066FF" fill-opacity="1.00"/><text class="corr-val" x="385.0" y="353.0" text-anchor="middle" fill="#ffffff">1.00</text></svg>
           <div class="corr-caption"><b>Likes and engagement move almost in lockstep</b> (r ≈ 0.99) — the strongest relationship in the dataset, ahead of comments, saves, and shares (r ≈ 0.65–0.82).</div>
         </div>
       </div>

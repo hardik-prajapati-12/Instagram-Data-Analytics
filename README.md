@@ -316,7 +316,7 @@ See [LICENSE](LICENSE) file for details.
 ## 👤 Contact & Support
 
 **Author:** Hardik Prajapati  
-**Email:** hardikprajapati12@gmail.com  
+**Email:** hardikprajapati73116@gmail.com  
 **Kaggle:** [hardikprajapati12](https://www.kaggle.com/hardikprajapati12)  
 **GitHub:** [hardikprajapati12](https://github.com/hardikprajapati12)
 
